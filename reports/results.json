@@ -1,0 +1,146 @@
+{
+  "dataset": "TweetEval offensive / OLID",
+  "test_n": 860,
+  "class_counts": [
+    620,
+    240
+  ],
+  "latency": {
+    "unit": "ms",
+    "warmups": 20,
+    "runs": 200,
+    "threads": 1,
+    "batch_size": 1,
+    "budget_ms": 50,
+    "hardware": "AMD EPYC 9V74 80-Core Processor",
+    "machine": "x86_64",
+    "system": "Linux",
+    "python": "3.12.14",
+    "torch": "2.7.1+cpu",
+    "sklearn": "1.8.0",
+    "scope": "normalization through label, confidence and mask; excludes HTTP and UI"
+  },
+  "models": {
+    "rules": {
+      "name": "Edit-distance rules",
+      "macro_f1": 0.6247642190195538,
+      "class_f1": [
+        0.860813704496788,
+        0.3887147335423197
+      ],
+      "confusion_matrix": [
+        [
+          603,
+          17
+        ],
+        [
+          178,
+          62
+        ]
+      ],
+      "bytes": 390,
+      "size_mb": 0.00039,
+      "mean_ms": 0.09340456499999998,
+      "p95_ms": 0.18503764999999997,
+      "max_ms": 0.200404,
+      "within_budget": 200
+    },
+    "tfidf": {
+      "name": "TF\u2013IDF + logistic regression",
+      "macro_f1": 0.7258428147943656,
+      "class_f1": [
+        0.8412438625204582,
+        0.6104417670682731
+      ],
+      "confusion_matrix": [
+        [
+          514,
+          106
+        ],
+        [
+          88,
+          152
+        ]
+      ],
+      "bytes": 1409972,
+      "size_mb": 1.409972,
+      "mean_ms": 0.32509797000000007,
+      "p95_ms": 0.43947365,
+      "max_ms": 0.605857,
+      "within_budget": 200
+    },
+    "neural": {
+      "name": "Word2Vec + MLP",
+      "macro_f1": 0.6313330189661402,
+      "class_f1": [
+        0.75736568457539,
+        0.5053003533568905
+      ],
+      "confusion_matrix": [
+        [
+          437,
+          183
+        ],
+        [
+          97,
+          143
+        ]
+      ],
+      "bytes": 1719957,
+      "size_mb": 1.719957,
+      "mean_ms": 0.12383639499999999,
+      "p95_ms": 0.23544169999999975,
+      "max_ms": 0.553158,
+      "within_budget": 200
+    },
+    "bert": {
+      "name": "BERT Tiny \u00b7 FP32",
+      "macro_f1": 0.7371482657306805,
+      "class_f1": [
+        0.8477905073649754,
+        0.6265060240963856
+      ],
+      "confusion_matrix": [
+        [
+          518,
+          102
+        ],
+        [
+          84,
+          156
+        ]
+      ],
+      "bytes": 17781420,
+      "size_mb": 17.78142,
+      "mean_ms": 1.6249672599999996,
+      "p95_ms": 2.1781395499999996,
+      "max_ms": 8.15942,
+      "within_budget": 200
+    },
+    "int8": {
+      "name": "BERT Tiny \u00b7 INT8",
+      "macro_f1": 0.7330444947857158,
+      "class_f1": [
+        0.8466557911908646,
+        0.6194331983805668
+      ],
+      "confusion_matrix": [
+        [
+          519,
+          101
+        ],
+        [
+          87,
+          153
+        ]
+      ],
+      "bytes": 4904123,
+      "size_mb": 4.904123,
+      "mean_ms": 1.878934715,
+      "p95_ms": 2.2461096999999923,
+      "max_ms": 42.892614,
+      "within_budget": 200
+    }
+  },
+  "bert_int8_label_changes": 6
+}

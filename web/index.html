@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Match Chat · Moderation</title>
+    <link rel="stylesheet" href="/web/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <div class="identity">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span
+          >Match Chat
+        </div>
+        <span class="machine">English moderation <b> / </b> CPU</span>
+      </div>
+    </header>
+    <main class="wrap">
+      <h1>Moderation console</h1>
+      <p class="intro">
+        Send a match-room message to see how the selected model handles it.
+      </p>
+      <div class="layout">
+        <section class="room box" aria-labelledby="room-title">
+          <div class="sectionhead">
+            <h2 id="room-title">Match room</h2>
+            <span class="status"><span></span> Live</span>
+          </div>
+          <div
+            id="feed"
+            role="log"
+            aria-live="polite"
+            aria-label="Chat messages"
+          >
+            <div id="empty">
+              <span class="emptyicon" aria-hidden="true"></span>
+              <h3>Waiting for a message</h3>
+              <p>The conversation will appear here.</p>
+            </div>
+          </div>
+          <form id="composer">
+            <label for="message">Your message</label>
+            <div class="sendrow">
+              <input
+                id="message"
+                type="text"
+                placeholder="Type a message…"
+                maxlength="500"
+                autocomplete="off"
+                required
+              /><button id="send" type="submit" disabled>
+                Send <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div class="formfoot">
+              <span id="error" role="status"></span
+              ><span id="counter">0 / 500</span>
+            </div>
+          </form>
+        </section>
+        <aside class="box">
+          <div class="controls">
+            <h2>Model controls</h2>
+            <label for="model">Active model</label
+            ><select id="model" disabled></select>
+            <p id="modelnote"></p>
+          </div>
+          <div class="timing">
+            <div class="timinghead">
+              <h2>Response times</h2>
+              <span class="unit">ms</span>
+            </div>
+            <p id="nolog">Each sent message adds a measurement.</p>
+            <ol id="log" aria-label="Response time log"></ol>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <script src="/web/app.js" defer></script>
+  </body>
+</html>
